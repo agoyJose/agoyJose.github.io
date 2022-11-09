@@ -1,0 +1,379 @@
+{
+	"Provider - Unimplemented": {
+		"prefix": "prouni",
+		"body": [
+			"import 'package:hooks_riverpod/hooks_riverpod.dart';",
+			"",
+			"final ${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g} = Provider<${1:String}>(",
+			"  (_) => throw UnimplementedError(),",
+			");",
+			""
+		],
+		"description": "Provider - Unimplemented"
+	},
+	"Stateless Widget": {
+		"prefix": "statelesswidget",
+		"body": [
+			"import 'package:flutter/material.dart';",
+			"",
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends StatelessWidget {",
+			"  const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({super.key});",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    return ${1:Container()};${0}",
+			"  }",
+			"}",
+			""
+		],
+		"description": "Stateless Widget"
+	},
+	"Beam Location": {
+		"prefix": "beamlocation",
+		"body": [
+			"import 'package:beamer/beamer.dart';",
+			"import 'package:flutter/material.dart';",
+			"",
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends BeamLocation<BeamState> {",
+			"  static const route = '${1:route}';",
+			"",
+			"  @override",
+			"  List<BeamPage> buildPages(BuildContext context, BeamState state) {",
+			"    return const [",
+			"      BeamPage(",
+			"        key: ValueKey('${3:key}'),",
+			"        title: '${4:title and name}',",
+			"        name: '${4:title and name}',",
+			"        child: ${5:Screen()},",
+			"      ),",
+			"    ];",
+			"  }",
+			"",
+			"  @override",
+			"  List<Pattern> get pathPatterns => const [route];",
+			"}"
+		],
+		"description": "Beam Location"
+	},
+	// import 'package:hooks_riverpod/hooks_riverpod.dart';
+	//
+	// class ${TM_FILENAME_BASE/(.*)(?=(_provider)).*/${1:/pascalcase}/g}Notifier extends StateNotifier<${1:String}> {
+	//   ${TM_FILENAME_BASE/(.*)(?=(_provider)).*/${1:/pascalcase}/g}Notifier({${1:String}? state}) : super(state ?? _initialState);
+	//
+	//   static ${1:String} get _initialState {
+	// 	   return ${2:''};
+	//   }${0}
+	// }
+	//
+	// final ${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g} = StateNotifierProvider.autoDispose<${TM_FILENAME_BASE/(.*)(?=(_provider)).*/${1:/pascalcase}/g}Notifier, ${1:String}>(
+	//   (_) => ${TM_FILENAME_BASE/(.*)(?=(_provider)).*/${1:/pascalcase}/g}Notifier(),
+	//   name: '${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}',
+	// );
+	"State Notifier Provider": {
+		"prefix": "statenotifierprovider",
+		"body": [
+			"import 'package:hooks_riverpod/hooks_riverpod.dart';",
+			"",
+			"class ${TM_FILENAME_BASE/(.*)(?=(_provider)).*/${1:/pascalcase}/g}Notifier extends StateNotifier<${1:String}> {",
+			"  ${TM_FILENAME_BASE/(.*)(?=(_provider)).*/${1:/pascalcase}/g}Notifier({${1:String}? state}) : super(state ?? _initialState);",
+			"",
+			"  static ${1:String} get _initialState {",
+			"    return ${2:''};",
+			"  }${0}",
+			"}",
+			"",
+			"final ${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g} = StateNotifierProvider.autoDispose<${TM_FILENAME_BASE/(.*)(?=(_provider)).*/${1:/pascalcase}/g}Notifier, ${1:String}>(",
+			"  (ref) => ${TM_FILENAME_BASE/(.*)(?=(_provider)).*/${1:/pascalcase}/g}Notifier(),",
+			"  name: '${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g}',",
+			");"
+		],
+		"description": "State Notifier Provider"
+	},
+	"Consumer Widget": {
+		"prefix": "consumerwidget",
+		"body": [
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends ${1:ConsumerWidget} {",
+			"  const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({super.key});",
+			"",
+			"  @override",
+			"  ${2:Widget} build(BuildContext context, WidgetRef ref) {",
+			"    ${3}",
+			"",
+			"    return ${4:Container()};${0}",
+			"  }",
+			"}",
+			""
+		],
+		"description": "Consumer Widget"
+	},
+	/*
+class _${1:Widget} extends StatelessWidget {
+  const _${1:Widget}();
+
+  @override
+  Widget build(BuildContext context) {
+    return ${2:Container()};
+  }
+}
+	*/
+	"Private Stateless Widget": {
+		"prefix": "privatestatelesswidget",
+		"body": [
+			"class _${1:Widget} extends StatelessWidget {",
+			"  const _${1:Widget}();",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    return ${2:Container()};",
+			"  }",
+			"}"
+		],
+		"description": "Private Stateless Widget"
+	},
+	/*
+class _${1:Widget} extends ConsumerWidget {
+  const _${1:Widget}();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    ${2}
+
+    return ${3:Container()};${0}
+  }
+}
+	*/
+	"Private Consumer Widget": {
+		"prefix": "privateconsumerwidget",
+		"body": [
+			"class _${1:Widget} extends ConsumerWidget {",
+			"  const _${1:Widget}();",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context, WidgetRef ref) {",
+			"    ${2}",
+			"",
+			"    return ${3:Container()};${0}",
+			"  }",
+			"}"
+		],
+		"description": "Private Consumer Widget"
+	},
+	/*
+abstract class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} {
+  ${0}
+}
+	*/
+	"Abstract class": {
+		"prefix": "abscls",
+		"body": [
+			"abstract class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} {",
+			"  ${0}",
+			"}",
+			""
+		],
+		"description": "Abstract class"
+	},
+	"Class": {
+		"prefix": "cls",
+		"body": [
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} {",
+			"  ${0:}",
+			"}",
+			""
+		],
+		"description": "Class - File Name"
+	},
+	// class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} {
+	//   const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({required ${1:Repository} repository}) : _repository = repository;
+	//
+	//   final ${1:Repository} _repository;
+	//
+	//   ${2:Return} call(${3:Parameters}) ${4} {
+	//     return _repository${5:.method()};${0}
+	//   }
+	// }
+	"Use Case": {
+		"prefix": "usecase",
+		"body": [
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} {",
+			"  const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({required ${1:Repository} repository}) : _repository = repository;",
+			"",
+			"  final ${1:Repository} _repository;",
+			"",
+			"  ${2:Return} call(${3:Parameters}) ${4} {",
+			"    return _repository${5:.method()};${0}",
+			"  }",
+			"}",
+			""
+		],
+		"description": "Use Case"
+	},
+	// class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}${2} extends ${TM_FILENAME_BASE/(.*)(?=(_model)).*/${1:/pascalcase}/g}${1}Entity {
+	// 	${0}
+	// }
+	"Model": {
+		"prefix": "model",
+		"body": [
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}${2} extends ${TM_FILENAME_BASE/(.*)(?=(_model)).*/${1:/pascalcase}/g}${1}Entity {",
+			"  ${0}",
+			"}",
+			""
+		],
+		"description": "Model"
+	},
+	// class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}${2} implements ${TM_FILENAME_BASE/(.*)(?=(_impl)).*/${1:/pascalcase}/g}${1}{
+	// 	const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({
+	// 		required GraphQLClient${3} client,
+	// 	}) : _client = client;
+	// 	
+	//  final GraphQLClient _client;
+	// 	
+	//  ${0}
+	// }	
+	"Remote Source Implementation": {
+		"prefix": "remotesourceimplementation",
+		"body": [
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}${2} implements ${TM_FILENAME_BASE/(.*)(?=(_impl)).*/${1:/pascalcase}/g}${1}{",
+			"  const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({",
+			"    required GraphQLClient${3} client,",
+			"  }) : _client = client;",
+			"",
+			"  final GraphQLClient _client;",
+			"  ${0}",
+			"}",
+			""
+		],
+		"description": "Remote Source Implementation"
+	},
+	// class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}${2} implements ${TM_FILENAME_BASE/(.*)(?=(_impl)).*/${1:/pascalcase}/g}${1}{
+	//   const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({
+	//     required ${TM_FILENAME_BASE/(.*)(?=(_repository_impl)).*/${1:/pascalcase}/g}RemoteSource${3} remoteSource,
+	//   }) : _remoteSource = remoteSource;
+	//
+	//   final ${TM_FILENAME_BASE/(.*)(?=(_repository_impl)).*/${1:/pascalcase}/g}RemoteSource _remoteSource;
+	//
+	//   ${0}
+	// }
+	"Repository Implementation": {
+		"prefix": "repositoryimplementation",
+		"body": [
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}${2} implements ${TM_FILENAME_BASE/(.*)(?=(_impl)).*/${1:/pascalcase}/g}${1}{",
+			"  const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({",
+			"    required ${TM_FILENAME_BASE/(.*)(?=(_repository_impl)).*/${1:/pascalcase}/g}RemoteSource${3} remoteSource,",
+			"  }) : _remoteSource = remoteSource;",
+			"",
+			"  final ${TM_FILENAME_BASE/(.*)(?=(_repository_impl)).*/${1:/pascalcase}/g}RemoteSource _remoteSource;",
+			"  ${0}",
+			"}",
+			""
+		],
+		"description": "Repository Implementation"
+	},
+	// final ${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g} = Provider${1}((ref) {
+	//   final client = ref.read(graphQLService${2});
+	//
+	//   return ${TM_FILENAME_BASE/(.*)(?=(_di)).*/${1:/pascalcase}/g}Impl(client: client)${3};
+	// });
+	"DI Remote Source": {
+		"prefix": "diremotesource",
+		"body": [
+			"final ${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g} = Provider${1}(",
+			"  (ref) {",
+			"    final client = ref.watch(graphQLService${2});",
+			"",
+			"    return ${TM_FILENAME_BASE/(.*)(?=(_di)).*/${1:/pascalcase}/g}Impl(client: client)${3};",
+			"  },",
+			"  dependencies: [graphQLService],",
+			");",
+			""
+		],
+		"description": "DI Remote Source"
+	},
+	// final ${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g} = Provider${1}((ref) {
+	//   final remoteSource = ref.read(${TM_FILENAME_BASE/(.*)(?=(_repository_di)).*/${1:/camelcase}/g}RemoteSourceDi${2});
+	//
+	//   return ${TM_FILENAME_BASE/(.*)(?=(_di)).*/${1:/pascalcase}/g}Impl(remoteSource: remoteSource)${3};
+	// });
+	"DI Repository": {
+		"prefix": "direpository",
+		"body": [
+			"final ${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g} = Provider${1}(",
+			"  (ref) {",
+			"    final remoteSource = ref.watch(${TM_FILENAME_BASE/(.*)(?=(_repository_di)).*/${1:/camelcase}/g}RemoteSourceDi${2});",
+			"",
+			"    return ${TM_FILENAME_BASE/(.*)(?=(_di)).*/${1:/pascalcase}/g}Impl(remoteSource: remoteSource)${3};",
+			"  },",
+			"  dependencies: [${TM_FILENAME_BASE/(.*)(?=(_repository_di)).*/${1:/camelcase}/g}RemoteSourceDi],",
+			");",
+			""
+		],
+		"description": "DI Repository"
+	},
+	// final ${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g} = Provider${1}(
+	//   (ref) {
+	//     final repository = ref.watch(${2:repositoryDi});
+	//
+	//     return ${TM_FILENAME_BASE/(.*)(?=(_di)).*/${1:/pascalcase}/g}(repository: repository)${4};
+	//   },
+	//   dependencies: [${2:repositoryDi}],
+	// );
+	"DI Use Case": {
+		"prefix": "diusecase",
+		"body": [
+			"final ${TM_FILENAME_BASE/(.*)/${1:/camelcase}/g} = Provider${1}(",
+			"  (ref) {",
+			"    final repository = ref.watch(${2:repositoryDi});",
+			"",
+			"    return ${TM_FILENAME_BASE/(.*)(?=(_di)).*/${1:/pascalcase}/g}(repository: repository)${4};",
+			"  },",
+			"  dependencies: [${2:repositoryDi}],",
+			");",
+			""
+		],
+		"description": "DI Use Case"
+	},
+	// class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends ${1:HookWidget} {
+	//   const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}();
+	//
+	//   @override
+	//   ${2:Widget} build(BuildContext context) {
+	//     return const ${3:Container()};
+	//   }
+	// }
+	"Hook Widget": {
+		"prefix": "hookwidget",
+		"body": [
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends ${1:HookWidget} {",
+			"  const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({super.key});",
+			"",
+			"  @override",
+			"  ${2:Widget} build(BuildContext context) {",
+			"    return const ${3:Container()};",
+			"  }",
+			"}"
+		],
+		"description": "Hook Widget"
+	},
+	// class _${1:Widget} extends ${2:HookWidget} {
+	//   const _${1:Widget}();
+	//
+	//   @override
+	//   ${3:Widget} build(BuildContext context) {
+	//     return ${4:Container()};${0}
+	//   }
+	// }
+	"Private Hook Widget": {
+		"prefix": "privatehookwidget",
+		"body": [
+			"class _${1:Widget} extends ${2:HookWidget} {",
+			"  const _${1:Widget}();",
+			"",
+			"  @override",
+			"  ${3:Widget} build(BuildContext context) {",
+			"    return ${4:Container()};${0}",
+			"  }",
+			"}"
+		],
+		"description": "Private Hook Widget"
+	}
+}
