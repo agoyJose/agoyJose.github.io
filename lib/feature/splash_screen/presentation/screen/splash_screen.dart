@@ -6,11 +6,18 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color(0xFF52856f),
+      backgroundColor: Color(0xFFedb33c),
       body: Center(
         child: Text(
-          'Welcome',
-          style: TextStyle(height: 24),
+          'Hey There!,\n'
+          "I'm Agoy",
+          style: TextStyle(
+            fontFamily: 'Helvetica Neue',
+            fontWeight: FontWeight.w700,
+            fontSize: 60,
+            height: 1.714,
+            color: Color(0xFF286f6c),
+          ),
         ),
       ),
     );
