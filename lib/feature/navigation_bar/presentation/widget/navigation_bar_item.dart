@@ -15,8 +15,8 @@ class NavigationBarItem extends StatelessWidget {
         text: title,
         style: const TextStyle(
           fontFamily: 'Helvetica Neue',
-          fontWeight: FontWeight.w700,
-          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          fontSize: 20,
           color: Color(0xFF286f6c),
         ),
         recognizer: TapGestureRecognizer()..onTap = () {},

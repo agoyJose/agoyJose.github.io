@@ -10,23 +10,30 @@ class SplashScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xFFedb33c),
-      body: Column(
-        children: [
-          const CustomNavigationBar(),
-          SizedBox(height: height * 0.5),
-          const Text(
-            'Hey There!,\n'
-            "I'm Agoy",
-            style: TextStyle(
-              fontFamily: 'Helvetica Neue',
-              fontWeight: FontWeight.w700,
-              fontSize: 60,
-              height: 1.714,
-              color: Color(0xFF286f6c),
+      body: Padding(
+        padding: const EdgeInsets.all(25),
+        child: Column(
+          children: [
+            SizedBox(
+              height: height * 0.3,
             ),
-          ),
-          const Spacer(),
-        ],
+            const Text(
+              "Hey There! I'm Agoy",
+              style: TextStyle(
+                fontFamily: 'Helvetica Neue',
+                fontWeight: FontWeight.w700,
+                fontSize: 60,
+                height: 1.714,
+                color: Color(0xFF286f6c),
+              ),
+            ),
+            SizedBox(
+              height: height * 0.01,
+            ),
+            const CustomNavigationBar(),
+            const Spacer()
+          ],
+        ),
       ),
     );
   }

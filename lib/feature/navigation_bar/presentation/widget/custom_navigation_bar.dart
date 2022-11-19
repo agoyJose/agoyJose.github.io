@@ -7,8 +7,9 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-        NavigationBarItem(title: 'About Us'),
+        NavigationBarItem(title: 'About Me'),
         SizedBox(
           width: 20,
         ),
@@ -16,7 +17,7 @@ class CustomNavigationBar extends StatelessWidget {
         SizedBox(
           width: 20,
         ),
-        NavigationBarItem(title: 'Contact Us'),
+        NavigationBarItem(title: 'Contact Me'),
         SizedBox(
           width: 20,
         )
