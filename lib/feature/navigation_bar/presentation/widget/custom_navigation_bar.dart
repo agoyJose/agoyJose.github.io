@@ -1,4 +1,6 @@
+import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
+import 'package:website/common/route/location/location.dart';
 import 'package:website/feature/navigation_bar/presentation/widget/widget.dart';
 
 class CustomNavigationBar extends StatelessWidget {
@@ -8,17 +10,22 @@ class CustomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        NavigationBarItem(title: 'About Me'),
-        SizedBox(
+      children: [
+        NavigationBarItem(
+          title: 'About Me',
+          onTap: () {
+            Beamer.of(context).beamToNamed(AboutMeLocation.route);
+          },
+        ),
+        const SizedBox(
           width: 20,
         ),
-        NavigationBarItem(title: 'Works'),
-        SizedBox(
+        const NavigationBarItem(title: 'Works'),
+        const SizedBox(
           width: 20,
         ),
-        NavigationBarItem(title: 'Contact Me'),
-        SizedBox(
+        const NavigationBarItem(title: 'Contact Me'),
+        const SizedBox(
           width: 20,
         )
       ],
