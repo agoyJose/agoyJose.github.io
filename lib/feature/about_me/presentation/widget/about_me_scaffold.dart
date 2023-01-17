@@ -14,16 +14,21 @@ class AboutMeScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFedb33c),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            profilePicture,
-            const SizedBox(
-              height: 25,
-            ),
-            text,
-          ],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 25,
+              ),
+              profilePicture,
+              const SizedBox(
+                height: 25,
+              ),
+              text,
+            ],
+          ),
         ),
       ),
     );
